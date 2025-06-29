@@ -1,0 +1,12 @@
+* {
+  font-size: 18px;
+}
+
+div {
+  color: white;
+  background-color: red;
+
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+}
