@@ -24,3 +24,31 @@ img {
   justify-content: center;
   background: #eee;
 }
+
+
+/* SOLUTION */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 36px;
+}
+
+.card-collection {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  padding: 0% 8%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
