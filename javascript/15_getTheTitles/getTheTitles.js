@@ -1,5 +1,5 @@
-const getTheTitles = function() {
-
+const getTheTitles = function()
+{
 };
 
 // Do not edit below this line
