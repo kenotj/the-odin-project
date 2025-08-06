@@ -306,3 +306,42 @@ function FizzBuzz()
   return sResult;
 }
 alert(FizzBuzz(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20));
+
+
+/** EVENT HANDLING */
+
+/** Event Handling - Method 1
+* in html:
+*   <button onclick="alertFunction()">CLICK ME BABY</button>
+*
+* in js:
+*   function alertFunction() { alert("YAY! YOU DID IT!"); }
+*/
+// <!-- the HTML file -->
+// <!-- METHOD 1 -->
+
+/** Event Handling - Method 2
+ * in js:
+ */
+
+
+/**
+ * Event Handling - Method 2
+ * in js:
+ *
+ */
+
+
+/**
+* Event Handling - Method 2/3
+*   function alertFunction()
+*   {
+*     alert("YAY! YOU DID IT!");
+*   }
+*   const btn = document.querySelector("#btn");
+*
+*   // METHOD 2
+*   btn.onclick = alertFunction;
+*   // METHOD 3
+*   btn.addEventListener("click", alertFunction);
+*/
