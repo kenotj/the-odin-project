@@ -308,6 +308,7 @@ function FizzBuzz()
 alert(FizzBuzz(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20));
 
 
+
 /** EVENT HANDLING */
 
 /** Event Handling - Method 1
@@ -333,15 +334,63 @@ alert(FizzBuzz(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
 
 
 /**
-* Event Handling - Method 2/3
-*   function alertFunction()
-*   {
-*     alert("YAY! YOU DID IT!");
-*   }
-*   const btn = document.querySelector("#btn");
-*
-*   // METHOD 2
-*   btn.onclick = alertFunction;
-*   // METHOD 3
-*   btn.addEventListener("click", alertFunction);
-*/
+ * Event Handling - Method 2/3
+ */
+function alertFunction()
+{
+  alert("YAY! YOU DID IT!");
+}
+const btn = document.querySelector("#btn");
+
+// Method 2
+btn.onclick = alertFunction;
+// Method 3 (best method, more flexible and powerful)
+btn.addEventListener("click", alertFunction);
+
+// We can also add in the fn ptr directly
+btn.addEventListener("click", function (e) {
+  e.target.style.background = "blue";
+});
+
+/**
+ * We can also add similar event listeners to multiple elements.
+ * for example (in html):
+ *    <div id="container">
+ *    <button id="one">Click Me</button>
+ *    <button id="two">Click Me</button>
+ *    <button id="three">Click Me</button>
+ *    </div>
+ */
+const buttons = document.querySelectorAll("button");
+buttons.forEach(function(button)
+{
+  button.addEventListener("click", ()=>{ alert(button.id); });
+});
+
+
+/**
+ * Closer to c++ would be:
+ */
+function AlertDialog(button)
+{
+  alert(button.id);
+}
+function ButtonsCallback(button)
+{
+  button.addEventListener("click", AlertDialog);
+}
+
+buttons.forEach(ButtonsCallback);
+
+/**
+ * possible C++ implementation:
+ *    void AlertDialog(CButton& button)
+ *    {
+ *      alert(button.id);
+ *    }
+ *    void ButtonsCallback(CButton& button)
+ *    {
+ *      button.addEventListener("click", [](CButton& button){ AlertDialog(button); });
+ *    }
+ *    button.addEventListener("click", ButtonsCallback);
+ */
