@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Custom Event</title>
+</head>
+
+<body>
+  <p>This is a parargraph.</p>
+  <div class="note">
+    JS Custom Event
+  </div>
+  <script>
+    function highlight(elem)
+    {
+      // set background color to yellow
+      const bgColor = 'yellow';
+      elem.style.backgroundColor = bgColor;
+
+      // create the event
+      let event = new CustomEvent('highlight',
+        {
+          detail:
+          {
+            backgroundColor: bgColor
+          }
+        });
+      // dispatch the event
+      elem.dispatchEvent(event);
+    }
+
+    // Select the div element
+    let div = document.querySelector('.note');
+
+    // Add border style
+    function addBorder(elem)
+    {
+      elem.style.border = "solid 1px red";
+    }
+
+    // Listen to the highlight event
+    div.addEventListener('highlight', function (e) {
+      // 1. add border to element
+      addBorder(this);
+      // 2. examine the background
+      console.log(e.detail);
+    });
+
+    // div element, highlight it
+    highlight(div);
+  </script>
+</body>
+
+</html>
